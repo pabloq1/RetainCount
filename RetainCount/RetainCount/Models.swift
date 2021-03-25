@@ -14,6 +14,7 @@ class Person {
     init(name: String, macbook: Macbook?) {
         self.name = name
         self.macbook = macbook
+        print("Person \(name) is being initialized")
     }
 
     /*
@@ -27,11 +28,12 @@ class Person {
 
 class Macbook {
     let model: String
-    var owner: Person?
+    weak var owner: Person?
 
     init(model: String, owner: Person?) {
         self.model = model
         self.owner = owner
+        print("Macbook \(model) is being initialized")
     }
 
     deinit {
