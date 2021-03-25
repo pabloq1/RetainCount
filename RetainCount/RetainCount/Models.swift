@@ -9,13 +9,17 @@ import Foundation
 
 class Person {
     let name: String
-    let macbook: Macbook?
+    var macbook: Macbook?
 
-    init(name: String, macbook: Macbook) {
+    init(name: String, macbook: Macbook?) {
         self.name = name
         self.macbook = macbook
     }
 
+    /*
+     called when the object gets released from memory
+     no retain cycle holding it
+     */
     deinit {
         print("Person \(name) is being deinitialized")
     }
@@ -23,9 +27,9 @@ class Person {
 
 class Macbook {
     let model: String
-    let owner: Person?
+    var owner: Person?
 
-    init(model: String, owner: Person) {
+    init(model: String, owner: Person?) {
         self.model = model
         self.owner = owner
     }
